@@ -1,18 +1,27 @@
 const express = require("express");
+const {
+  getMenuItems,
+  createMenuItem,
+  getMenuItem,
+  deleteMenuItem,
+  updateMenuItem,
+} = require("../controllers/menuController");
 
-const app = express.Router();
+const router = express.Router();
 
 // GET all menu items
-app.get("/", (req, res) => {});
+router.get("/", getMenuItems);
 
 // GET specific menu item
-app.get("/:id", (req, res) => {});
+router.get("/:id", getMenuItem);
 
 // POST menu item
-app.post("/", (req, res) => {});
+router.post("/", createMenuItem);
 
 // DELETE a menu item
-app.delete("/:id", (req, res) => {});
+router.delete("/:id", deleteMenuItem);
 
 // UPDATE a menu item
-app.patch("/:id", (req, res) => {});
+router.patch("/:id", updateMenuItem);
+
+module.exports = router;
